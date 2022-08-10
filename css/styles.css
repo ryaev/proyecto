@@ -188,3 +188,14 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+body {
+  background-color: rgb(248, 249, 250);
+}
+
+.loginlogo {
+  display: block;
+  margin: auto;
+  width: 30%;
+  padding: 20px;
+}
