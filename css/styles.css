@@ -199,3 +199,8 @@ body {
   width: 30%;
   padding: 20px;
 }
+
+span {
+  color: red;
+  font-size: small;
+}
