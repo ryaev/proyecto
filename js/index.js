@@ -11,4 +11,11 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+
+let usuario = JSON.parse(sessionStorage.getItem('datos'));
+if (usuario==null){
+    alert('Debe iniciar sesión para ingresar a eMercado')
+    location.href="login.html";
+}
+
 });

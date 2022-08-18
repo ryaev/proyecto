@@ -29,6 +29,10 @@ function login(){
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("ingresar").addEventListener("click", () => {
+        let usuario = {}
+        usuario.email = document.getElementById("email").value;
+        usuario.pass = document.getElementById("contra").value;
+        sessionStorage.setItem('datos', JSON.stringify(usuario))
         login();
     })
 })
