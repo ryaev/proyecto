@@ -17,5 +17,8 @@ if (usuario==null){
     alert('Debe iniciar sesión para ingresar a eMercado')
     location.href="login.html";
 }
+else{
+    emailusu.innerHTML = usuario.email;
+}
 
 });
