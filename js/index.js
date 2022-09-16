@@ -12,13 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 
-let usuario = JSON.parse(sessionStorage.getItem('datos'));
-if (usuario==null){
-    alert('Debe iniciar sesión para ingresar a eMercado')
-    location.href="login.html";
-}
-else{
-    emailusu.innerHTML = usuario.email;
-}
+mostrarUsuario();
 
 });

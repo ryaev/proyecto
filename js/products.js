@@ -42,6 +42,10 @@ function sortCategories(criteria, array){
     return result;
 }
 
+function setprodID(idprod) {
+    localStorage.setItem("id", idprod);
+    window.location = "product-info.html"
+}
 
 //función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
 function showCategoriesList(){
@@ -54,7 +58,7 @@ function showCategoriesList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(prod.cost) <= maxCount))){
 
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <div onclick="setprodID(${prod.id})" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + prod.image + `" alt="product image" class="img-thumbnail">
@@ -73,7 +77,7 @@ function showCategoriesList(){
         </div>
         `
         }
-        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend; 
+        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -158,5 +162,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+
+    mostrarUsuario();
 
 });

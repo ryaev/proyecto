@@ -204,3 +204,8 @@ span {
   color: red;
   font-size: small;
 }
+
+select{
+width: 10%;
+height: 30px;
+}
