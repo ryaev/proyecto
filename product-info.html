@@ -31,11 +31,19 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" id="emailusu"></a>
+          
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="emailusu"></a>
+              <div class="dropdown-menu">
+                <a href="cart.html" class="dropdown-item">Mi carrito</a>
+                <a href="my-profile.html" class="dropdown-item">Mi perfil</a>
+                  <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item" onclick="logout()">Cerrar sesión</a>
+              </div>
           </li>
-          <li class="nav-item">
-          </li>
+        
+        <li class="nav-item">
+        </li>          
         </ul>
       </div>
     </div>
@@ -67,9 +75,9 @@
     <h4>Comentar:</h4>
     <div class="container">
       <div class="form-group">
-          <label for="comentarios">Opinión: </label><br>
+          <label for="comentarios">Comentario: </label><br>
           <textarea id="comentario" name="comentario" rows="3" cols="50" placeholder="Escribe aquí tus comentarios"></textarea><br>
-          <label for="puntos">Puntos:</label>
+          <label for="puntos">Puntuación:</label>
           <select name="puntos" id="puntaje">
             <option value="" selected disabled hidden></option>
             <option value="1">1</option>
@@ -80,8 +88,13 @@
           </select><br><br>
           <button class="btn btn-primary my-3" id="agrego" onclick="agregar()">Enviar comentario</button>
       </div>
-  
-  </div>
+    </div>
+    <hr>
+    <h4>Productos relacionados:</h4><br>
+    <div class="container">
+      <div id="relacionadosprod" class="row row-cols-1 row-cols-md-4 g-4">
+      </div>
+    </div>
   </main>
   <footer class="text-muted">
     <div class="container">

@@ -55,3 +55,12 @@ function mostrarUsuario(){
     emailusu.innerHTML = usuario.email;
     }
 }
+
+function logout(){
+  
+  sessionStorage.removeItem('datos')
+  localStorage.removeItem('catID')
+  localStorage.removeItem('id')
+  location.href="login.html";
+
+}

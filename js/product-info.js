@@ -1,10 +1,12 @@
 let commentsArray = [];
+let relprodArray = [];
 
 document.addEventListener("DOMContentLoaded", function(e){
     let prodid = JSON.parse(localStorage.getItem('id'));
     const PRODUCT_INFO_URL = "https://japceibal.github.io/emercado-api/products/"+ prodid +".json";
     const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/products_comments/"+ prodid +".json";
     let conte = document.getElementById('imageprod');
+    let relaprod = document.getElementById('relacionadosprod');
     
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -16,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             let catprod = resultObj.data.category;
             let canprod = resultObj.data.soldCount;
             let imgprod = resultObj.data.images;
+            let relprodArray = resultObj.data.relatedProducts;
+
 
             document.getElementById('nombreprod').innerHTML = nomprod;
             document.getElementById('monedaprod').innerHTML = monprod;
@@ -33,8 +37,23 @@ document.addEventListener("DOMContentLoaded", function(e){
             </div>   
             `
             }
-        }
-    });
+
+            for (let i=0; i<relprodArray.length; i++){
+            let relprod = relprodArray[i];
+            relaprod.innerHTML += `
+            <div onclick="setprodID(${relprod.id})" class="col h-100">
+                    <div class="card h-100">
+                    <img src="${relprod.image}" class="card-img-top">
+                        <div class="card-body">
+                        <label class="card-title">${relprod.name}</label>
+                        </div>
+                    </div>
+            </div>   
+            `
+            }
+    }
+    
+});
 
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -136,4 +155,9 @@ function listaComen(){
         `
     }
     document.getElementById("comments").innerHTML+=filas;
+}
+
+function setprodID(idprod) {
+    localStorage.setItem("id", idprod);
+    window.location = "product-info.html"
 }
