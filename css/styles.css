@@ -200,12 +200,20 @@ body {
   padding: 20px;
 }
 
-span {
+/*span {
   color: red;
   font-size: small;
-}
+}*/
 
 select{
 width: 10%;
 height: 30px;
+}
+
+.invalid-color{
+  color: orangered;
+}
+
+:hover.invalid-color{
+  color: #741d26;
 }

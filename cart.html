@@ -72,12 +72,16 @@
             </div>
           <hr>
           <h5>Tipo de envío</h5>
-          <input type="radio" id="premium" name="tipoenvio" value="Premium">
+
+          <input type="radio" id="premium" name="tipoenvio" value="0.15">
           <label for="premiun">Premium 2 a 5 días (15%)</label><br>
-          <input type="radio" id="express" name="tipoenvio" value="Express">
+          <input type="radio" id="express" name="tipoenvio" value="0.07">
           <label for="express">Express 5 a 8 días (7%)</label><br>
-          <input type="radio" id="standard" name="tipoenvio" value="Standard">
-          <label for="standard">Standard 12 a 15 días (5%)</label>
+          <input type="radio" id="standard" name="tipoenvio" value="0.05">
+          <label for="standard">Standard 12 a 15 días (5%)</label><br>
+
+          <span class="invalid-feedback" id="feedback-tipoenvio">Debe seleccionar tipo de envío.</span>
+          
           <hr>
           <h5>Dirección de envío</h5>
           
@@ -96,11 +100,73 @@
           <div class="col-12">
           <label for="esquina">Esquina:</label>
           <input type="text" class="form-control" id="esquina" value="" name="esquina" style="width: 500px;">
-          </div>
+          </div><br>
 
-        
+          <span class="invalid-feedback" id="feedback-datos-envio">Debe llenar los datos para envío.</span>
+
           </div>
           <hr>
+
+          <h5>Costos</h5>
+
+          <div class="row">
+            <div class="list-group" id="comments">
+              <div class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                           <div class="mb-1">
+                             <span><strong>Subtotal: </strong></span><span id="monedaarts"></span>&nbsp;<span id="subtotal"></span><br>
+                             <span>Costo unitario del producto por cantidad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+              </div>
+
+              <div class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                           <div class="mb-1">
+                            <span><strong>Costo de envío: </strong></span><span id="monedaartc"></span>&nbsp;<span id="costenvio"></span><br>
+                            <span>Según el tipo de envío</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+              </div>
+
+              <div class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                           <div class="mb-1">
+                             <span><strong>Total: </strong></span><span id="monedaartt"></span>&nbsp;<span id="totalgen"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+              </div>
+
+            </div>
+          </div>
+
+          <hr>
+
+          <h5>Forma de pago</h5>
+
+          <div class="col-sm-12">
+            <button type="button" class="btn btn-link ps-0" id="btn-modal-terminos" data-bs-toggle="modal"
+              data-bs-target="#modalPago">Seleccionar forma de pago</button><br>
+            <span class="invalid-feedback" id="feedback-modal-pago">Debe seleccionar su forma de pago.</span><br>
+            <span class="invalid-feedback" id="feedback-modal-formapago2">Debe completar los datos requeridos de su forma de pago.</span>
+          </div>
+
+          <hr>
+
+          <button class="btn btn-primary my-3" id="comprar" onclick="validarCompra()">Finalizar compra</button>
+
       </div>
     </div>
 
@@ -123,6 +189,61 @@
       <div></div>
     </div>
   </div>
+
+  <div class="modal fade" id="modalPago" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Forma de pago</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <input type="radio" id="credito" name="formapago" value="credito">
+          <label for="credito">Tarjeta de crédito</label><hr>
+
+          <div class="row g-3">
+
+            <div class="col-sm-6">
+            <label for="numtarje">Número de tarjeta:</label>
+            <input type="number" class="form-control" id="numtarje" name="inputscre">
+            </div>
+            
+            <div class="col-sm-6">
+            <label for="codsegu">Código de seguridad:</label>
+            <input type="number" class="form-control" id="codsegu" name="inputscre" style="width: 100px;">
+            </div>
+            
+            <div class="col-sm-6">
+            <label for="vencimiento">Vencimiento (MM/AA):</label>
+            <input type="date" class="form-control" id="vencimiento" name="inputscre" style="width: 200px;">
+            </div>
+
+            <span class="invalid-feedback" id="feedback-modal-pagocre">Debe completar los datos de la tarjeta</span>
+  
+        </div><br>
+
+        <input type="radio" id="transferencia" name="formapago" value="transferencia">
+        <label for="transferencia">Transferencia bancaria</label><hr>
+
+        <div class="row g-3">
+
+          <div class="col-sm-6">
+          <label for="numcuen">Número de cuenta:</label>
+          <input type="number" class="form-control" id="numcuen" name="cuenta">
+          </div>
+
+        </div><br>
+
+        <div class="modal-footer">
+          <span class="invalid-feedback" id="feedback-modal-formapago">Debe completar los datos correspondientes a su forma de pago</span>
+          <button type="button" class="btn btn-primary my-3" data-bs-dismiss="modal" aria-label="Close">Aceptar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
