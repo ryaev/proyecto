@@ -62,10 +62,46 @@
     </div>
   </nav>
   <main>
+    <br>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+      
+      <h4>Perfil de usuario</h4><hr>
+          
+          <div class="row g-3">
+
+          <div class="col-sm-6">
+          <label for="primernom">Primer nombre:*</label>
+          <input type="text" class="form-control" id="primernom" value="" name="primernom">
+          </div>
+          
+          <div class="col-sm-6">
+          <label for="segundonom">Segundo nombre:</label>
+          <input type="text" class="form-control" id="segundonom" value="" name="segundonom">
+          </div>
+
+          <div class="col-sm-6">
+            <label for="primerape">Primer apellido:*</label>
+            <input type="text" class="form-control" id="primerape" value="" name="primerape">
+            </div>
+            
+            <div class="col-sm-6">
+            <label for="segundoape">Segundo apellido:</label>
+            <input type="text" class="form-control" id="segundoape" value="" name="segundoape">
+            </div>
+          
+            <div class="col-sm-6">
+              <label for="emailuser">E-mail:*</label>
+              <input type="text" class="form-control" id="emailuser" value="" name="emailuser">
+              </div>
+              
+              <div class="col-sm-6">
+              <label for="telefono">Telefóno de contacto:</label>
+              <input type="number" class="form-control" id="telefono" value="" name="telefono">
+              </div>
+          </div>
+
+          <button class="btn btn-primary my-3" id="cambiosuser" onclick="validarDatosuser()">Guardar cambios</button>
+
     </div>
   </main>
   <footer class="text-muted">

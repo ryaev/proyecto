@@ -29,10 +29,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     mostrarUsuario()
 
-    /*document.getElementById("regBtn").addEventListener("click", () => {
-        validar();
-    })*/
-
 });
 
 function mostrarCart(array){
